@@ -1,0 +1,5 @@
+pytest==3.0.5
+requests==2.13.0
+datapackage
+-e git+ssh://git@github.com/CT-Data-Collaborative/pytest-ctdata-datapackage.git#egg=pytest-ctdata-datapackage
+-e git+ssh://git@github.com/CT-Data-Collaborative/ctdata-datapackage-publisher.git#egg=ctdata-datapackage-publisher
