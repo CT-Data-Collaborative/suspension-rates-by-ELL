@@ -2,7 +2,7 @@
   "name": "suspension-rates-by-ell",
   "datapackage_version": "1.0-beta.18",
   "title": "Suspension-Rates-by-ELL",
-  "description": "Suspension Rate reports the percentage of students who have recieved at least one sanction (ISS, OSS, EXP) during a school year, per subgroup.",
+  "description": "Suspension Rate reports the percentage of students who have recieved at least one sanction (ISS, OSS, EXP) during a school year, for English language learners",
   "version": "1.0",
   "licenses": [{
     "url": "http://opendatacommons.org/licenses/pddl/",
@@ -21,7 +21,7 @@
   }],
   "contributor": [],
   "resources": [{
-    "path": "data/data.csv",
+    "path": "data/suspension_rates_ell_2017.csv",
     "format": "csv",
     "schema": {
       "fields": [{
@@ -39,12 +39,31 @@
         }, {
           "name": "Measure Type",
           "type": "string",
-          "dimension": true
+          "dimension": true,
+          "constraints": {
+			      "enum": [
+		          "Percent"
+		        ]
+			    }
         }, {
           "name": "Variable",
           "type": "string",
-          "dimension": true
+          "dimension": true,
+          "constraints": {
+			      "enum": [
+			        "Suspensions"
+		        ]
+			    }
         }, {
+          "name": "English Learner Status",
+          "type": "string",
+          "dimension": true, 
+            "constraints": {
+		        "enum": [
+              "English Language Learner"
+            ]
+			    }
+        }, {            
           "name": "Value",
           "type": "number",
           "dimension": false
@@ -52,7 +71,7 @@
       }
     }
   ],
-  "last_modified": "03/22/2017",
+  "last_modified": "05/18/18",
   "ckan_extras": {
     "full_description": {
       "ckan_name": "Full Description",
@@ -61,7 +80,7 @@
     },
     "suppression": {
       "ckan_name": "Suppression",
-      "value": "",
+      "value": "Disaggregations where either the numerator is less than 6 or the denominator is less than 20 are suppressed.",
       "type": "string"
     },
     "technical_notes": {
@@ -71,12 +90,12 @@
     },
     "socrata": {
       "ckan_name": "Socrata",
-      "value": "False",,
+      "value": "False",
       "type": "string"
     },
     "socrata_url": {
       "ckan_name": "Socrata Dataset URL",
-      "value": "",,
+      "value": "",
       "type": "string"
     },
     "domain": {
@@ -102,12 +121,12 @@
     },
     "years_in_catalog": {
       "ckan_name": "Years in Catalog",
-      "value": [],
+      "value": ["2009-2010", "2010-2011", "2011-2012", "2012-2013", "2013-2014", "2014-2015", "2015-2016", "2016-2017"],
       "type": "array"
     },
     "latest_year": {
       "ckan_name": "Latest Year Available",
-      "value": "2015-2016",
+      "value": "2016-2017",
       "type": "string"
     },
     "disabled_views": {
@@ -123,11 +142,71 @@
         "Percent": "%"
       }
     },
-    "default": {}
+    "expected_number_of_geographies": {
+		  "ckan_name": "Expected Number of Unique Geographies",
+		  "value": 205,
+		  "type": "string"
+		},      
+    "default": {      
+      "ckan_name": "Default",
+			"value": {
+				"Measure Type": "Percent",
+		 		"District": "Connecticut",
+		 		"Year": ["2016-2017"],
+		 		"Variable": "Suspensions"
+			},
+		  	"type": "object"
+    }  
   },
-  "spot_checks": [],
+  "spot_checks": [
+    {
+      "type": "$lookup",
+      "filter": {
+        "District": "Bridgeport School District",
+        "Year": "2009-2010",
+        "Variable": "Suspensions",
+        "Measure Type": "Percent", 
+        "English Learner Status": "English Language Learner"
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "float",
+        "value": 12.6
+      } 
+    },
+    {
+      "type": "$lookup",
+      "filter": {
+        "District": "Connecticut",
+        "Year": "2013-2014",
+        "Variable": "Suspensions",
+        "Measure Type": "Percent", 
+        "English Learner Status": "English Language Learner"
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "float",
+        "value": 10.6
+      } 
+    },
+    {
+      "type": "$lookup",
+      "filter": {
+        "District": "Canaan School District",
+        "Year": "2016-2017",
+        "Variable": "Suspensions",
+        "Measure Type": "Percent", 
+        "English Learner Status": "English Language Learner" 
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "float",
+        "value": -9999
+      } 
+    }
+  ],
   "dimension_groups": [
-    {"Measure Type": []},
-    {"Variable": []}
+    {"English Learner Status": ["English Language Learner"],
+     "Variable": ["Suspensions"]}
   ]
 }

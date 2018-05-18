@@ -1,7 +1,8 @@
 Suspension-Rates-by-ELL
 
-[![Build Status](https://travis-ci.org/CT-Data-Collaborative/suspension-rates-by-gender.svg?branch=master)](https://travis-ci.org/CT-Data-Collaborative/suspension-rates-by-gender)
-A short description of the project.
+Suspension Rate by Race reports the percentage of students who have recieved at least one sanction (ISS, OSS, EXP) during a school year, for students with English learner status.
+
+Data Source: <http://edsight.ct.gov/SASPortal/main.do>
 
 ## License MIT
 
