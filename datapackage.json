@@ -15,13 +15,13 @@
     "web": ""
   }],
   "author":[{
-    "name": "Jenna Daly",
-    "email": "jdaly@ctdata.org",
-    "web": "http://ctdata.org"
+    "name": "CTData Collaborative",
+    "email": "info@ctdata.org",
+    "web": "https://ctdata.org"
   }],
   "contributor": [],
   "resources": [{
-    "path": "data/suspension_rates_ell_2017.csv",
+    "path": "data/suspension_rates_ell_2020.csv",
     "format": "csv",
     "schema": {
       "fields": [{
@@ -71,11 +71,11 @@
       }
     }
   ],
-  "last_modified": "05/18/18",
+  "last_modified": "03/29/2021",
   "ckan_extras": {
     "full_description": {
       "ckan_name": "Full Description",
-      "value": "The ED166 is the Student Disciplinary Offense Data Collection. The CSDE uses this data to satisfy various federal mandates such as the Individuals with Disabilities Education Act, the No Child Left Behind: Unsafe School Choice Option, and Special Education Reporting. This dataset reports the total number of unique, unduplicated students that have received at least one In-school Suspension (ISS), Out-of-school Suspension (OSS), or Expulsion (EXP) out of the total number of students enrolled in the Public School Information System (PSIS) as of October of the given year. This dataset is based on School Years. Charter Districts have been entered as individual districts.",
+      "value": "The ED166 is the Student Disciplinary Offense Data Collection. The CSDE uses this data to satisfy various federal mandates such as the Individuals with Disabilities Education Act, the No Child Left Behind: Unsafe School Choice Option, and Special Education Reporting. This dataset reports the total number of unique, unduplicated students that have received at least one In-school Suspension (ISS), Out-of-school Suspension (OSS), or Expulsion (EXP) out of the total number of students enrolled in the Public School Information System (PSIS) as of October of the given year. This dataset is based on School Years. Charter Districts have been entered as individual districts. Note: In the 2019-20 school year, due to the COVID-19 pandemic, in-person classes were cancelled in mid-March; all districts switched to fully remote instruction for the remainder of the school year.",
       "type": "string"
     },
     "suppression": {
@@ -121,12 +121,12 @@
     },
     "years_in_catalog": {
       "ckan_name": "Years in Catalog",
-      "value": ["2009-2010", "2010-2011", "2011-2012", "2012-2013", "2013-2014", "2014-2015", "2015-2016", "2016-2017"],
+      "value": ["2009-2010", "2010-2011", "2011-2012", "2012-2013", "2013-2014", "2014-2015", "2015-2016", "2016-2017", "2017-2018", "2018-2019", "2019-2020"],
       "type": "array"
     },
     "latest_year": {
       "ckan_name": "Latest Year Available",
-      "value": "2016-2017",
+      "value": "2019-2020",
       "type": "string"
     },
     "disabled_views": {
@@ -152,7 +152,7 @@
 			"value": {
 				"Measure Type": "Percent",
 		 		"District": "Connecticut",
-		 		"Year": ["2016-2017"],
+		 		"Year": ["2019-2020"],
 		 		"Variable": "Suspensions"
 			},
 		  	"type": "object"

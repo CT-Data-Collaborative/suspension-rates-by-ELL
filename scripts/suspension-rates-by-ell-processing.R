@@ -11,10 +11,8 @@ library(datapkg)
 
 
 #Setup environment
-sub_folders <- list.files()
-data_location <- grep("ELL", sub_folders, value=T)
-path_to_top_level <- (paste0(getwd(), "/", data_location))
-path_to_raw_data <- (paste0(getwd(), "/", data_location, "/", "raw"))
+path_to_top_level <- paste0(getwd())
+path_to_raw_data <- (paste0(getwd(), "/", "raw"))
 all_csvs <- dir(path_to_raw_data, recursive=T, pattern = ".csv") 
 all_state_csvs <- dir(path_to_raw_data, recursive=T, pattern = "ct.csv") 
 all_dist_csvs <- all_csvs[!all_csvs %in% all_state_csvs]
@@ -77,7 +75,10 @@ years <- c("2009-2010",
            "2013-2014",
            "2014-2015",
            "2015-2016", 
-           "2016-2017")
+           "2016-2017",
+           "2017-2018",
+           "2018-2019",
+           "2019-2020")
 
 backfill_years <- expand.grid(
   `FixedDistrict` = unique(districts$`FixedDistrict`),
@@ -153,7 +154,7 @@ complete_susp_rates_long <- complete_susp_rates_long %>%
 #Write CSV
 write.table(
   complete_susp_rates_long,
-  file.path(path_to_top_level, "data", "suspension_rates_ell_2017.csv"),
+  file.path(path_to_top_level, "data", "suspension_rates_ell_2020.csv"),
   sep = ",",
   row.names = F
 )
